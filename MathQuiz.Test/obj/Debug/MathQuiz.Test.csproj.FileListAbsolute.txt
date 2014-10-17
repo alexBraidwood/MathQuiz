@@ -1,0 +1,9 @@
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\bin\Debug\MathQuiz.Test.dll
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\bin\Debug\MathQuiz.Test.pdb
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\bin\Debug\MathQuiz.exe
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\bin\Debug\nunit.framework.dll
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\bin\Debug\MathQuiz.pdb
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\bin\Debug\nunit.framework.xml
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\obj\Debug\MathQuiz.Test.csprojResolveAssemblyReference.cache
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\obj\Debug\MathQuiz.Test.dll
+c:\Users\abraidwood\documents\visual studio 2012\Projects\MathQuiz\MathQuiz.Test\obj\Debug\MathQuiz.Test.pdb
