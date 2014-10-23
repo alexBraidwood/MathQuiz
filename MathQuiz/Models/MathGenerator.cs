@@ -13,7 +13,7 @@
 
             for (int i = 0; i < NumberOfNumbers; ++i)
             {
-                numberArray.Push(rng.Next(0, 100));
+                numberArray.Push(rng.Next(1, 40));
             }
 
             // Todo: Send a filled array

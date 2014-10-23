@@ -1,3 +1,4 @@
+C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\bin\Debug\MathQuiz.exe.config
 C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\bin\Debug\MathQuiz.exe
 C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\bin\Debug\MathQuiz.pdb
 C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\obj\Debug\MainWindow.baml
@@ -9,3 +10,4 @@ C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\obj\
 C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\obj\Debug\MathQuiz.csproj.GenerateResource.Cache
 C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\obj\Debug\MathQuiz.exe
 C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\obj\Debug\MathQuiz.pdb
+C:\Users\abraidwood\Documents\Visual Studio 2012\Projects\MathQuiz\MathQuiz\obj\Debug\MathQuiz.csprojResolveAssemblyReference.cache

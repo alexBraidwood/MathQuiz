@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -19,12 +20,49 @@ namespace MathQuiz
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<ProblemType> checkedTypes;
+        
+        private Quiz quiz;
+        private IQuizzable currentProblem;
+        private List<ProblemType> CheckedTypes
+        {
+            get
+            {
+                if (checkedTypes == null)
+                {
+                    checkedTypes = new List<ProblemType>();
+                }
+                return checkedTypes;
+            }
+            set
+            {
+                checkedTypes = value;
+            }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void updateNewBoxText(string number)
+        {
+            if (!(number.Equals("0") && NumberBox.Text.Equals("0")))
+            {
+                NumberBox.Text = string.Concat(NumberBox.Text, number);
+            }
+        }
+
+        private void toggleInput(bool turnInputOn)
+        {
+            foreach (UIElement c in UserGrid.Children)
+            {
+                c.IsEnabled = turnInputOn;
+            }
+        }
+
+        private void KeyPadButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
 
@@ -63,12 +101,92 @@ namespace MathQuiz
             }
         }
 
-        public void updateNewBoxText(string number)
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!(number.Equals("0") && NumberBox.Text.Equals("0")))
+            this.NumberBox.Text = string.Empty;
+            this.FeedbackBlock.Text = string.Empty;
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentProblem.IsSolution(decimal.Parse(NumberBox.Text)))
             {
-                NumberBox.Text = string.Concat(NumberBox.Text, number);
+                FeedbackBlock.Foreground = new SolidColorBrush(Color.FromRgb(0, 255, 46));
+                FeedbackBlock.Text = "Correct!";
+                NextButton.Visibility = System.Windows.Visibility.Visible;
             }
+            else
+            {
+                FeedbackBlock.Foreground = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                FeedbackBlock.Text = "Try Again!";
+            }
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (quiz.ProblemsLeft > 0)
+            {
+                FeedbackBlock.Text = string.Empty;
+                this.NumberBox.Text = string.Empty;
+                NextButton.Visibility = System.Windows.Visibility.Hidden;
+                currentProblem = quiz.getNextProblem();
+                EquationBlock.Text = currentProblem.Equation;
+            }
+            else
+            {
+                this.NextButton.Content = "Quiz Complete!";
+                GeneratorPanel.Visibility = System.Windows.Visibility.Visible;
+                toggleInput(false);
+            }
+        }
+
+        private void MathBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            ProblemType toggleType = ProblemType.None;
+
+            switch (checkbox.Name)
+            {
+                case "addCheckBox":
+                    toggleType = ProblemType.Addition;
+                    break;
+                case "subCheckBox":
+                    toggleType = ProblemType.Subtraction;
+                    break;
+                case "divCheckBox":
+                    toggleType = ProblemType.Division;
+                    break;
+                case "multCheckBox":
+                    toggleType = ProblemType.Multiplication;
+                    break;
+            }
+
+            if (toggleType == ProblemType.None)
+                return;
+
+            if (checkbox.IsChecked.Value == true)
+            {
+                CheckedTypes.Add(toggleType);
+            }
+            else
+            {
+                CheckedTypes.Remove(toggleType);
+            }
+        }
+
+        private void GenerateButton_Click(object sender, RoutedEventArgs e)
+        {
+            GeneratorPanel.Visibility = Visibility.Hidden;
+            quiz = new Quiz(int.Parse(AmountBox.Text), ProblemTypes: checkedTypes.ToArray());
+            currentProblem = quiz.getNextProblem();
+            EquationBlock.Text = currentProblem.Equation;
+            NextButton.Visibility = System.Windows.Visibility.Hidden;
+            toggleInput(true);
+        }
+
+        private void UserGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            toggleInput(false);
         }
     }
 }
