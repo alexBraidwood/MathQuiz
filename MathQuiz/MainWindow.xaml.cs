@@ -61,6 +61,11 @@ namespace MathQuiz
             }
         }
 
+        /// <summary>
+        /// Adds numbers to NumberBox depending on button pressed
+        /// </summary>
+        /// <param name="sender">Pressed Button on Keypad</param>
+        /// <param name="e">Events</param>
         private void KeyPadButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -96,6 +101,9 @@ namespace MathQuiz
                     break;
                 case "ZeroButton":
                     updateNewBoxText("0");
+                    break;
+                case "DecimalButton":
+                    updateNewBoxText(".");
                     break;
             }
         }
@@ -138,6 +146,7 @@ namespace MathQuiz
             {
                 this.NextButton.Content = "Quiz Complete!";
                 GeneratorPanel.Visibility = System.Windows.Visibility.Visible;
+                checkedTypes.Clear();
                 toggleInput(false);
             }
         }
@@ -145,6 +154,7 @@ namespace MathQuiz
         private void MathBox_Checked(object sender, RoutedEventArgs e)
         {
             var checkbox = sender as CheckBox;
+
             ProblemType toggleType = ProblemType.None;
 
             switch (checkbox.Name)
@@ -178,12 +188,19 @@ namespace MathQuiz
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            GeneratorPanel.Visibility = Visibility.Hidden;
-            quiz = new Quiz(int.Parse(AmountBox.Text), ProblemTypes: checkedTypes.ToArray());
-            currentProblem = quiz.getNextProblem();
-            EquationBlock.Text = currentProblem.Equation;
-            NextButton.Visibility = System.Windows.Visibility.Hidden;
-            toggleInput(true);
+            int problemAmount;
+
+            if (CheckedTypes.Count > 0 
+                && !(string.IsNullOrEmpty(AmountBox.Text))
+                && (int.TryParse(AmountBox.Text, out problemAmount)))
+            {
+                GeneratorPanel.Visibility = Visibility.Hidden;
+                quiz = new Quiz(problemAmount, ProblemTypes: checkedTypes.ToArray());
+                currentProblem = quiz.getNextProblem();
+                EquationBlock.Text = currentProblem.Equation;
+                NextButton.Visibility = System.Windows.Visibility.Hidden;
+                toggleInput(true);
+            }
         }
 
         private void UserGrid_Loaded(object sender, RoutedEventArgs e)

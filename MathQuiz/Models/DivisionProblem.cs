@@ -11,7 +11,13 @@
 
         public DivisionProblem(int[] Numbers)
         {
-            this.Numbers = Numbers;
+            int maxVal = 12;
+            List<int> nums = new List<int>();
+            foreach (var x in Numbers)
+            {
+                nums.Add(x % maxVal + 1);
+            }
+            this.Numbers = nums.ToArray();
         }
 
         private decimal Solution { get; set; }
@@ -55,6 +61,7 @@
                     }
                 }
 
+                this.Solution = decimal.Round(this.Solution, 2);
                 this.Equation = sb.ToString();
                 numbers = value;
             }

@@ -83,5 +83,10 @@ namespace MathQuiz
             if (ProblemsLeft < 0)
                 ProblemsLeft = 0;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

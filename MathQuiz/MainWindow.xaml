@@ -58,7 +58,8 @@
                 <Button x:Name="NineButton" Content="9" HorizontalAlignment="Left" Margin="110,0,0,0" VerticalAlignment="Top" Width="55" Click="KeyPadButton_Click"/>
                 <Button x:Name="ThreeButton" Content="3" HorizontalAlignment="Left" Margin="110,44,0,0" VerticalAlignment="Top" Width="55" Click="KeyPadButton_Click"/>
                 <Button x:Name="SixButton" Content="6" HorizontalAlignment="Left" Margin="110,22,0,0" VerticalAlignment="Top" Width="55" Click="KeyPadButton_Click"/>
-                <Button x:Name="ZeroButton" Content="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="165" Click="KeyPadButton_Click"/>
+                <Button x:Name="ZeroButton" Content="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="55" Click="KeyPadButton_Click" Margin="55,0,0,0"/>
+                <Button x:Name="DecimalButton" Content="." HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top" Width="55" Click="KeyPadButton_Click"/>
             </Grid>
             <TextBox x:Name="NumberBox" HorizontalAlignment="Left" Height="53" Margin="45,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="165" FontSize="36" IsEnabled="False"/>
 
