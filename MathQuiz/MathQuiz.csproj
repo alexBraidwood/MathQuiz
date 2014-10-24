@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AdditionProblem.cs" />
+    <Compile Include="Models\DivisionProblem.cs" />
     <Compile Include="Models\MathGenerator.cs" />
     <Compile Include="Models\ProblemType.cs" />
     <Compile Include="ViewModels\Quiz.cs" />
