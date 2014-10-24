@@ -10,21 +10,6 @@
 
         private static readonly Random RNG = new Random();
 
-        //public static Stack<IQuizzable> GetProblems(int Count, int NumberOfNumbers, params ProblemType[] Types)
-        //{
-        //    // Todo: Do RNG for # of Numbers
-        //    Random rng = new Random(); // Default seed is fine
-        //    var numberArray = new Stack<int>();
-
-        //    for (int i = 0; i < NumberOfNumbers * Count; ++i)
-        //    {
-        //        numberArray.Push(rng.Next(1, 40));
-        //    }
-
-        //    // Todo: Send a filled array
-        //    return GetProblems(Count, numberArray.ToArray(), Types);
-        //}
-
         public static Stack<IQuizzable> GetProblems(int Count, int NumberOfNumbers, params ProblemType[] Types)
         {
             Stack<IQuizzable> results = new Stack<IQuizzable>();
@@ -44,6 +29,7 @@
                 Random rng = new Random();
                 ProblemType type = (ProblemType)rng.Next((int)ProblemType.Addition, (int)ProblemType.Division);
                 results.Push(GetProblem(type, NumberOfNumbers));
+                leftOver--;
             }
 
             
@@ -66,9 +52,9 @@
                 case ProblemType.Subtraction:
                     return new SubtractionProblem(numList.ToArray());
                 case ProblemType.Multiplication:
-                    break;
+                    return new MultiplicationProblem(numList.ToArray());
                 case ProblemType.Division:
-                    break;
+                    return new DivisionProblem(numList.ToArray());
             }
 
             throw new ArgumentException();
