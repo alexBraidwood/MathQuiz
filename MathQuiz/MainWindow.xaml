@@ -19,10 +19,10 @@
                 Name="GeneratorPanel"
                 Height="150"
                 VerticalAlignment="Bottom">
-                <CheckBox x:Name="addCheckBox" Content="Addition" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,53,0,0" Checked="MathBox_Checked" />
-                <CheckBox x:Name="subCheckBox" Content="Subtraction" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Checked="MathBox_Checked" />
-                <CheckBox x:Name="divCheckBox" Content="Division" HorizontalAlignment="Left" Margin="115,53,0,0" VerticalAlignment="Top" Checked="MathBox_Checked" />
-                <CheckBox x:Name="multCheckBox" Content="Multiplication" HorizontalAlignment="Left" Margin="115,88,0,0" VerticalAlignment="Top" Checked="MathBox_Checked" />
+                <CheckBox x:Name="addCheckBox" Content="Addition" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,53,0,0" Checked="MathBox_Checked" Unchecked="MathBox_Checked"/>
+                <CheckBox x:Name="subCheckBox" Content="Subtraction" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Checked="MathBox_Checked" Unchecked="MathBox_Checked"/>
+                <CheckBox x:Name="divCheckBox" Content="Division" HorizontalAlignment="Left" Margin="115,53,0,0" VerticalAlignment="Top" Checked="MathBox_Checked" Unchecked="MathBox_Checked"/>
+                <CheckBox x:Name="multCheckBox" Content="Multiplication" HorizontalAlignment="Left" Margin="115,88,0,0" VerticalAlignment="Top" Checked="MathBox_Checked" Unchecked="MathBox_Checked"/>
                 <TextBox x:Name="AmountBox" HorizontalAlignment="Left" Height="23" Margin="138,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
                 <Label Content="Number of Problems:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="10"/>
                 <Button Content="Generate" HorizontalAlignment="Left" Margin="75,118,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.28,-0.091" Background="#FFD3F5FF" Click="GenerateButton_Click">
