@@ -40,7 +40,6 @@ namespace MathQuiz
             }
         }
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -109,6 +108,9 @@ namespace MathQuiz
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(NumberBox.Text))
+                return;
+
             if (currentProblem.IsSolution(decimal.Parse(NumberBox.Text)))
             {
                 FeedbackBlock.Foreground = new SolidColorBrush(Color.FromRgb(0, 255, 46));
